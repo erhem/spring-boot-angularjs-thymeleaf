@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Add and Edit User</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <div th:fragment="content">
+            <h1>Add and Edit</h1>
+            <form action="#" th:action="@{/user/form}" th:object="${user}" 
+                  method="post" >
+                <table border="1">
+                    <tbody>
+                        <tr>
+                            <td>First Name</td>
+                            <td><input type="text" th:field="*{firstName}" /></td>
+                            <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Error Message</td>
+                        </tr>
+                        <tr>
+                            <td>Last Name</td>
+                            <td><input type="text" th:field="*{lastName}" /></td>
+                            <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Pesan Error</td>
+                        </tr>
+                        <tr>
+                            <td>Username</td>
+                            <td><input type="text" th:field="*{userName}" /></td>
+                            <td th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">Pesan Error</td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="password" th:field="*{password}" /></td>
+                            <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Pesan Error</td>
+                        </tr>
+                        <tr>
+                            <td>Birth Of Date</td>
+                            <td><input type="text" th:field="*{birthOfDate}" /></td>
+                            <td th:if="${#fields.hasErrors('birthOfDate')}" th:errors="*{birthOfDate}">Pesan Error</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><input type="submit" value="Submit" /></td>
+                            <td><input type="hidden" th:field="*{userId}"  /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
